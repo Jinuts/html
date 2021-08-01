@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <script>
+var queryDict = {}
+location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]}) 
+function setDiv(divName, x, y){
+	if(queryDict[divName] != undefined)
+	{
+		e = document.getElementById(divName);
+		e.innerHTML=decodeURIComponent(queryDict[divName]).replace("\\n","<br/>");
+		e.style.left = (e.offsetLeft + Math.round(e.clientWidth*x))+"px";
+		e.style.top = (e.offsetTop + Math.round(e.clientHeight*y))+"px";
+	}
+}
+  </script>
+ </head>
+ <body onload="setDiv('P', -0.5, 1); setDiv('V', 0, 0.5); setDiv('S', -0.5, -1);">
+  <div>
+   <div>
+    <div style="
+		position:absolute; display : inline-block;
+		left:50px; top:0px;
+		height : 0; width : 0;
+		border-top : 256px solid transparent;
+		border-right : 443px solid yellow;
+		border-bottom : 256px solid transparent;"></div>
+		
+	<p style="position:absolute; left:425px; top:5px">Persecuteur</p>
+	<div id="P" style="position:absolute; left:465px; top:40px; text-align:center"></div>
+	
+	<p style="position:absolute; left:65px; top:230px">Victime</p>
+	<div id="V" style="position:absolute; left:140px; top:238px; text-align:center"></div>
+	
+	<p style="position:absolute; left:440px; top:450px">Sauveur</p>
+	<div id="S" style="position:absolute; left:465px; top:440px; text-align:center"></div>
+   </div>
+  </div>
+  <div style="position:absolute; top:520px">
+  <p>Le triangle dramatique est générateur de stress<br/>en analyse transactionnel, une interaction basé sur un de ces rôles sous entends qu'au moins un des interlocuteurs n'a pas de valeur<br/>cette dévalorisation doit être éviter dans les échanges.<br/><a href="https://fr.wikipedia.org/wiki/Triangle_dramatique">Triangle de Karpman</a></p>
+  </div>
+ </body>
+</html>
