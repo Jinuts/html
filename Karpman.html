@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html>
- <head>
-   <script>
+ <body onload="
 var queryDict = {}
-location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]}) 
+location.search.substr(1).split('&').forEach(function(item) {queryDict[item.split('=')[0]] = item.split('=')[1]}) 
 function setDiv(divName, x, y){
 	if(queryDict[divName] != undefined)
 	{
 		e = document.getElementById(divName);
-		e.innerHTML=decodeURIComponent(queryDict[divName]).replace("\\n","<br/>");
-		e.style.left = (e.offsetLeft + Math.round(e.clientWidth*x))+"px";
-		e.style.top = (e.offsetTop + Math.round(e.clientHeight*y))+"px";
+		e.innerHTML=decodeURIComponent(queryDict[divName]).replace('\\n','<br/>');
+		e.style.left = (e.offsetLeft + Math.round(e.clientWidth*x))+'px';
+		e.style.top = (e.offsetTop + Math.round(e.clientHeight*y))+'px';
 	}
 }
-  </script>
- </head>
- <body onload="setDiv('P', -0.5, 1); setDiv('V', 0, 0.5); setDiv('S', -0.5, -1);">
+ setDiv('P', -0.5, 1); setDiv('V', 0, 0.5); setDiv('S', -0.5, -1);
+ ">
   <div>
    <div>
     <div style="
@@ -27,7 +25,7 @@ function setDiv(divName, x, y){
 		border-bottom : 256px solid transparent;"></div>
 		
 	<p style="position:absolute; left:425px; top:5px">Persecuteur</p>
-	<div id="P" style="position:absolute; left:465px; top:40px; text-align:center"></div>
+	<div id="P" style="position:absolute; left:465px; top:25px; text-align:center"></div>
 	
 	<p style="position:absolute; left:65px; top:230px">Victime</p>
 	<div id="V" style="position:absolute; left:140px; top:238px; text-align:center"></div>
